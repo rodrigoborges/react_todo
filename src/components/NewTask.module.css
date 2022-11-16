@@ -6,12 +6,16 @@
     padding-top: 15px;
 }
 
+
+.newTask
 input,
 button {
     vertical-align: middle;
     height: 3.4rem;
 }
 
+
+.newTask
 input {
     background: var(--gray-500);
     color: var(--gray-300);
