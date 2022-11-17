@@ -25,7 +25,7 @@ export default function Task({task, onSetlistTasks, onRemoveListTasks}: TaskProp
             <div>
                 <div className={styles.taskContent}>
                     <input type="checkbox" id={`${task.id}`} checked={checked} onChange={handleChangeDone} />
-                    <label htmlFor={`${task.id}`}>{task.description}</label>
+                    <label htmlFor={`${task.id}`} className={`${task.done ? styles.taskLineThrough : ""}`} >{task.description}</label>
                     <button onClick={() => handleRemoveTask(task.id)}>Remover</button>
                 </div>
             </div>
