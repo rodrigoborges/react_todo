@@ -3,10 +3,11 @@ import iTask from "../interfaces/Task"
 
 interface TasksProps {
     listTasks: iTask[],
-    onSetlistTasks: (id: number, status: boolean) => void
+    onSetlistTasks: (id: number, status: boolean) => void,
+    onRemoveListTasks: (id: number) => void
 }
 
-export default function Tasks({listTasks, onSetlistTasks}: TasksProps) {
+export default function Tasks({listTasks, onSetlistTasks, onRemoveListTasks}: TasksProps) {
 
     const numTask: number = listTasks.length;
     if (numTask === 0) {
@@ -23,7 +24,7 @@ export default function Tasks({listTasks, onSetlistTasks}: TasksProps) {
                     <h4>Concluídas: {listTasks.filter(task => task.done).length} de {numTask}</h4>
                 </header>
                 <div>
-                    {listTasks.map(task => { return (<Task key={task.id} task={task} onSetlistTasks={onSetlistTasks} />) } )}
+                    {listTasks.map(task => { return (<Task key={task.id} task={task} onSetlistTasks={onSetlistTasks} onRemoveListTasks={onRemoveListTasks} />) } )}
                 </div>
             </div>
         );

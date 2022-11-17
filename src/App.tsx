@@ -4,7 +4,6 @@ import Tasks from "./components/Tasks";
 
 import iTask from './interfaces/Task'
 import { useState } from 'react';
-import Task from "./components/Task";
 
 export default function App() {
 
@@ -15,16 +14,20 @@ export default function App() {
   }
 
   function onSetlistTasks(id: number, status: boolean) {
-      console.log(id, status);
       const newListTasks = listTasks.map(task => (task.id === id) ? {...task, done: status} : task );
       setListTasks(newListTasks);
+  }
+
+  function onRemoveListTasks(id: number) {
+    const newListTasks = listTasks.filter(task => task.id !== id);
+    setListTasks(newListTasks);
   }
 
   return (
     <div>
       <Header />
       <NewTask onNewTask={onNewTask} />
-      <Tasks listTasks={listTasks} onSetlistTasks={onSetlistTasks} />
+      <Tasks listTasks={listTasks} onSetlistTasks={onSetlistTasks} onRemoveListTasks={onRemoveListTasks} />
     </div>
   )
 }
