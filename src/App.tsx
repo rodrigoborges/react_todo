@@ -10,17 +10,14 @@ export default function App() {
   const [listTasks, setListTasks] = useState<iTask[]>([])
 
   function onNewTask(task: iTask) {
-    listTasks.push(task);
-    setListTasks(listTasks);
-    console.log(listTasks);
+    setListTasks([...listTasks, task]);
   }
-
 
   return (
     <div>
       <Header />
       <NewTask onNewTask={onNewTask} />
-      <Tasks />
+      <Tasks listTasks={listTasks} />
     </div>
   )
 }

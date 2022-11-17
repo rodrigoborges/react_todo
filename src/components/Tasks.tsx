@@ -6,9 +6,8 @@ interface TasksProps {
 }
 
 export default function Tasks({listTasks}: TasksProps) {
-    console.log(listTasks)
-
-    if (listTasks === undefined) {
+    console.log(listTasks.length)
+    if (listTasks.length === 0) {
         return (
             <div>
                 <h1>Não existem tarefas a serem realizadas.</h1>
@@ -17,7 +16,7 @@ export default function Tasks({listTasks}: TasksProps) {
     } else {
         return (
             <div>
-                {listTasks.map(task => <Task key={task.id} task={task} />) }
+                {listTasks.map(task => { return (<Task key={task.id} task={task} />) } )}
             </div>
         );
     }
