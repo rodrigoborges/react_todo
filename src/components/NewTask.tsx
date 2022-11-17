@@ -19,6 +19,8 @@ export default function NewTask({onNewTask }: NewTaskProps) {
     function handleSubmitTask(e: FormEvent) {
         e.preventDefault();
 
+        if (description === '') return;
+
         task.id = idIncrement;
         task.description = description;
         task.done = false;
@@ -27,6 +29,7 @@ export default function NewTask({onNewTask }: NewTaskProps) {
 
         setDescription('');
         setIdIncrement(idIncrement + 1);
+
     }
 
     return (
